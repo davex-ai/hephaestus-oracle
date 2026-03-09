@@ -89,8 +89,32 @@ def generate_code():
     with open("code/random_snippets.txt", "a") as f:
         f.write(f"\n# {lang}\n{snippets[lang]}\n")
 
+import os
+
+def update_dashboard():
+
+    algo_count = sum(1 for line in open("algorithms/generated_algorithms.py") if "def algo_" in line)
+    formula_count = sum(1 for line in open("math/formulas.md") if "f(x)" in line)
+
+    dashboard = f"""
+# Procedural Computer Science
+
+Daily generated computer science artifacts.
+
+## Stats
+
+Algorithms generated: {algo_count}
+Math formulas generated: {formula_count}
+
+Last update: {__import__('datetime').datetime.now()}
+"""
+
+    with open("README.md","w") as f:
+        f.write(dashboard)
+
 
 generate_ascii()
 generate_training_log()
 generate_network()
 generate_code()
+update_dashboard()
