@@ -163,16 +163,20 @@ def evolve_weights():
 
     path = "neural_networks/weights.npy"
 
-    if os.path.exists(path):
-        weights = np.load(path)
-    else:
+    try:
+        if os.path.exists(path) and os.path.getsize(path) > 0:
+            weights = np.load(path)
+        else:
+            raise ValueError("weights file empty")
+
+    except Exception:
+        print("Reinitializing weights")
         weights = np.random.randn(10,10)
 
     noise = np.random.normal(0,0.01,weights.shape)
-
     weights += noise
 
-    np.save(path,weights)
+    np.save(path, weights, allow_pickle=False)
 
     loss = np.mean(weights**2)
     acc = random.random()
