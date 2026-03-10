@@ -1,5 +1,8 @@
 name: Daily Random Commit
 
+permissions:
+  contents: write
+
 on:
   schedule:
     - cron: "0 0 * * *"   
@@ -11,7 +14,9 @@ jobs:
 
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Generate random code
         run: |
