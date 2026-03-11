@@ -1,5 +1,5 @@
-
-# Procedural Computer Science
+# Hephaestus Oracle
+hephaestus-oracle is a Procedural Computer Science Lab
 
 Daily generated computer science artifacts.
 
