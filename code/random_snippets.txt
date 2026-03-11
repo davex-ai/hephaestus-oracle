@@ -4,3 +4,6 @@ println!("chaos");
 
 # go
 fmt.Println("chaos")
+
+# python
+print('chaos')
