@@ -29,7 +29,7 @@ jobs:
       - name: Commit
         run: |
           git config --global user.name "Aetna (Hephaestus Assist)"
-          git config --global user.email "actions@github.com"
+          git config --global user.email "omotoyedave4@gmail.com"
           git add .
-          git commit -m "Evolving cs cs update $(date)" || echo "no change"
+          git commit -m "Evolving cs cs update  $(date +'%Y-%m-%d %H:%M')" || echo "no change"
           git push
