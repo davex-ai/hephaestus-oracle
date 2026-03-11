@@ -1,7 +1,11 @@
 
 # 🔥 Hephaestus Oracle
+![Repo Size](https://img.shields.io/github/repo-size/davex-ai/hephaestus-oracle)
+![Last Commit](https://img.shields.io/github/last-commit/davex-ai/hephaestus-oracle)
+![Workflow](https://img.shields.io/github/actions/workflow/status/davex-ai/hephaestus-oracle/daily.yml)
 
 An autonomous forge generating computer science artifacts.
+
 
 ---
 
@@ -25,5 +29,11 @@ An autonomous forge generating computer science artifacts.
 - Procedural artifact generator
 - Autonomous GitHub workflow
 - Neural weight evolution engine
+
+  ## 🎨 Latest ASCII Artifact
+
+
+## 🧠 Neural Weight Heatmap
+
 
 Last oracle cycle: **2026-03-11 08:30:54.703701**
