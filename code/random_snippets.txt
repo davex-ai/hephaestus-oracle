@@ -25,3 +25,6 @@ std::cout << "chaos";
 
 # python
 print('chaos')
+
+# javascript
+console.log('chaos')
