@@ -49,3 +49,6 @@ System.out.println("chaos");
 
 # go
 fmt.Println("chaos")
+
+# go
+fmt.Println("chaos")
