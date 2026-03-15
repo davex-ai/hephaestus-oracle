@@ -1,7 +1,8 @@
-name: Daily Random Commit
+name: Daily Random Commit PR Flow
 
 permissions:
   contents: write
+  pull-requests: write
 
 on:
   schedule:
@@ -9,13 +10,54 @@ on:
   workflow_dispatch:
 
 jobs:
-  commit:
+  commit-pr-merge:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
         with:
+          fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up GitHub CLI auth
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | gh auth login --with-token
+
+      - name: Configure git
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Prepare counter
+        id: counter
+        run: |
+          git checkout main
+          git pull origin main
+
+          if [ ! -f .auto-branch-counter ]; then
+            echo "0" > .auto-branch-counter
+          fi
+
+          CURRENT=$(cat .auto-branch-counter)
+          NEXT=$((CURRENT + 1))
+
+          if [ "$NEXT" -gt 5 ]; then
+            NEXT=1
+          fi
+
+          echo "$NEXT" > .auto-branch-counter
+          echo "branch_name=auto/random-$NEXT" >> $GITHUB_OUTPUT
+          echo "branch_num=$NEXT" >> $GITHUB_OUTPUT
+
+      - name: Commit counter update on main
+        run: |
+          git add .auto-branch-counter
+          git commit -m "chore: update auto branch counter" || echo "no counter changes"
+          git push origin main
+
+      - name: Create branch
+        run: |
+          git checkout -B "${{ steps.counter.outputs.branch_name }}"
 
       - name: Generate random code
         run: |
@@ -24,10 +66,20 @@ jobs:
           echo "console.log(num);" >> random_code.js
           echo "" >> random_code.js
 
-      - name: Commit changes
+      - name: Commit and push branch
         run: |
-          git config --global user.name "github-actions"
-          git config --global user.email "omotoyedave4@gmail.com"
-          git add .
-          git commit -m "auto: random code  $(date +'%Y-%m-%d %H:%M')" || echo "no changes"
-          git push
+          git add random_code.js
+          git commit -m "auto: random code $(date +'%Y-%m-%d %H:%M')" || echo "no changes"
+          git push origin "${{ steps.counter.outputs.branch_name }}" --force
+
+      - name: Create PR
+        run: |
+          gh pr create \
+            --base main \
+            --head "${{ steps.counter.outputs.branch_name }}" \
+            --title "Auto PR: random code update #${{ steps.counter.outputs.branch_num }}" \
+            --body "Automated random code update from GitHub Actions."
+
+      - name: Merge PR and delete branch
+        run: |
+          gh pr merge "${{ steps.counter.outputs.branch_name }}" --merge --delete-branch
