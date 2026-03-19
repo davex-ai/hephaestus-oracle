@@ -79,3 +79,6 @@ std::cout << "chaos";
 
 # rust
 println!("chaos");
+
+# c++
+std::cout << "chaos";
