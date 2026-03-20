@@ -91,3 +91,6 @@ console.log('chaos')
 
 # rust
 println!("chaos");
+
+# go
+fmt.Println("chaos")
