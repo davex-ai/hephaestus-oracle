@@ -103,3 +103,6 @@ fmt.Println("chaos")
 
 # java
 System.out.println("chaos");
+
+# java
+System.out.println("chaos");
