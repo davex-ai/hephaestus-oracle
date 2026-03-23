@@ -109,3 +109,6 @@ System.out.println("chaos");
 
 # go
 fmt.Println("chaos")
+
+# javascript
+console.log('chaos')
