@@ -133,3 +133,6 @@ System.out.println("chaos");
 
 # python
 print('chaos')
+
+# python
+print('chaos')
