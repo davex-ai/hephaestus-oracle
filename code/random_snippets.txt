@@ -157,3 +157,6 @@ console.log('chaos')
 
 # c++
 std::cout << "chaos";
+
+# java
+System.out.println("chaos");
