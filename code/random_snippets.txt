@@ -184,3 +184,6 @@ System.out.println("chaos");
 
 # python
 print('chaos')
+
+# c++
+std::cout << "chaos";
