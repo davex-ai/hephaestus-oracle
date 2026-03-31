@@ -187,3 +187,6 @@ print('chaos')
 
 # c++
 std::cout << "chaos";
+
+# python
+print('chaos')
