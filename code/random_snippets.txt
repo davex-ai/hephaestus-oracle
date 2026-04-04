@@ -238,3 +238,6 @@ std::cout << "chaos";
 
 # python
 print('chaos')
+
+# c++
+std::cout << "chaos";
