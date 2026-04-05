@@ -253,3 +253,6 @@ print('chaos')
 
 # java
 System.out.println("chaos");
+
+# c++
+std::cout << "chaos";
