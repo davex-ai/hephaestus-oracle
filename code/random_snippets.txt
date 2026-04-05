@@ -247,3 +247,6 @@ print('chaos')
 
 # python
 print('chaos')
+
+# python
+print('chaos')
