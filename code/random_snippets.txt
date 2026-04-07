@@ -265,3 +265,6 @@ std::cout << "chaos";
 
 # go
 fmt.Println("chaos")
+
+# python
+print('chaos')
