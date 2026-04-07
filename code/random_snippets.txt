@@ -268,3 +268,6 @@ fmt.Println("chaos")
 
 # python
 print('chaos')
+
+# rust
+println!("chaos");
