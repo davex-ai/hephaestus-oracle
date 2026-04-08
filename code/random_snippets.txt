@@ -274,3 +274,6 @@ println!("chaos");
 
 # go
 fmt.Println("chaos")
+
+# c++
+std::cout << "chaos";
