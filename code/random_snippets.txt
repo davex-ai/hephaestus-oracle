@@ -331,3 +331,6 @@ console.log('chaos')
 
 # javascript
 console.log('chaos')
+
+# rust
+println!("chaos");
