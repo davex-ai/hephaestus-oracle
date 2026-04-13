@@ -334,3 +334,6 @@ console.log('chaos')
 
 # rust
 println!("chaos");
+
+# python
+print('chaos')
