@@ -346,3 +346,6 @@ System.out.println("chaos");
 
 # rust
 println!("chaos");
+
+# c++
+std::cout << "chaos";
