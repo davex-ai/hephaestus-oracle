@@ -349,3 +349,6 @@ println!("chaos");
 
 # c++
 std::cout << "chaos";
+
+# javascript
+console.log('chaos')
